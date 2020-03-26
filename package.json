@@ -9,6 +9,8 @@
         "url": "git+ssh://git@github.com:frydlewicz/expressBoilerplate.git"
     },
     "scripts": {
+        "check": "tslint -c  tslint.json -p .",
+        "build": "tsc",
         "start": "node ./bin/www"
     },
     "dependencies": {
