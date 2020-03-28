@@ -1,6 +1,6 @@
 # Node.js Express boilerplate
 
-![expressBoilerplate version](https://img.shields.io/expressBoilerplate-1.0.0-green.svg)
+![expressBoilerplate version](https://img.shields.io/badge/expressBoilerplate-1.0.0-green.svg)
 [![License](https://img.shields.io/badge/license-MIT-red.svg)](https://opensource.org/licenses/MIT)
 
 Framework based on Express written in TypeScript for Node.js with less ang pug integration.
@@ -50,6 +50,8 @@ export PORT=3000
 npm run watch
 ```
 It is recommended to use different port than 3000.
+
+Now open a browser and provide: http://localhost:3000/
 
 ## Author
 [Kamil Frydlewicz](https://frydlewicz.pl)
