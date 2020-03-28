@@ -10,7 +10,9 @@
     },
     "scripts": {
         "check": "tslint -c tslint.json -p .",
-        "build": "tsc && lessc public/styles/main.less public/styles/main.css && gzip public/styles/main.css",
+        "build-js": "tsc && minify public/scripts/main.js > public/scripts/main.min.js && gzip public/scripts/main.min.js",
+        "build-css": "lessc public/styles/main.less public/styles/main.css && minify public/styles/main.css > public/styles/main.min.css && gzip public/styles/main.min.css",
+        "build": "npm run build-js && npm run build-css",
         "start": "node server.js",
         "watch": "nodemon -e ts,less,json,pug -x \"npm run build && npm start\""
     },
@@ -19,6 +21,8 @@
         "express": "^4.17.1",
         "gzip-cli": "^1.1.0",
         "less": "^3.11.1",
+        "minify": "^5.1.1",
+        "nodemon": "^2.0.2",
         "path": "^0.12.7",
         "pug": "^2.0.4",
         "typescript": "^3.8.3"
@@ -31,7 +35,6 @@
         "@types/pug": "^2.0.4",
         "@types/request": "^2.48.4",
         "jest": "^25.2.3",
-        "nodemon": "^2.0.2",
         "request": "^2.88.2",
         "tslint": "^6.1.0"
     }
