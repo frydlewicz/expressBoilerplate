@@ -14,7 +14,8 @@
         "build-css": "lessc public/styles/main.less public/styles/main.css && minify public/styles/main.css > public/styles/main.min.css && gzip public/styles/main.min.css",
         "build": "npm run build-js && npm run build-css",
         "start": "node server.js",
-        "watch": "nodemon -e ts,less,json,pug -x \"npm run build && npm start\""
+        "watch": "nodemon -e ts,less,json,pug -x \"npm run build && npm start\"",
+        "test": "jest test/*.test.js"
     },
     "dependencies": {
         "cookie-parser": "^1.4.5",
