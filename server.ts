@@ -4,6 +4,7 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 
 import indexRouter from './routes/index';
+import { scripts, styles } from './services/middleware';
 
 const port: number = parseInt(process.env.PORT || '3000', 10);
 const app: Express = express();
@@ -21,7 +22,10 @@ app.use(express.urlencoded({
 }));
 app.use(cookieParser());
 
+app.get('*.js', scripts);
+app.get('*.css', styles);
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.use('/', indexRouter);
 
 app.use((_: Request, res: Response): void => {
