@@ -30,7 +30,7 @@ app.use((_: Request, res: Response): void => {
 });
 
 server.on('error', (error: Error): void => {
-    console.error(error)
+    console.error(error);
 });
 
 server.on('listening', (): void => {

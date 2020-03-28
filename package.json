@@ -9,7 +9,7 @@
         "url": "git+ssh://git@github.com:frydlewicz/expressBoilerplate.git"
     },
     "scripts": {
-        "check": "tslint -c tslint.json -p .",
+        "check": "tslint --fix -c tslint.json -p .",
         "build-js": "tsc && minify public/scripts/main.js > public/scripts/main.min.js && gzip public/scripts/main.min.js",
         "build-css": "lessc public/styles/main.less public/styles/main.css && minify public/styles/main.css > public/styles/main.min.css && gzip public/styles/main.min.css",
         "build": "npm run build-js && npm run build-css",
