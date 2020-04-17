@@ -11,7 +11,6 @@ function setHeadersWithGz(req: Request, res: Response, type: string): void {
         res.set('Content-Encoding', 'gzip');
         res.set('Content-Type', `text/${type}`);
     }
-    res.set('Cache-Control', 'public, max-age=31557600');
 }
 
 export function scripts(req: Request, res: Response, next: NextFunction): void {

@@ -13,7 +13,7 @@ app.set('port', port);
 
 const server: Server = http.createServer(app);
 
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views/pages'));
 app.set('view engine', 'pug');
 
 app.use(express.json());
@@ -29,8 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 
 app.use((_: Request, res: Response): void => {
-    res.status(404);
-    res.render('404');
+    res.status(404).render('404');
 });
 
 server.on('error', (error: Error): void => {
