@@ -8,9 +8,6 @@ import { scripts, styles } from './services/middleware';
 
 const port: number = parseInt(process.env.PORT || '3000', 10);
 const app: Express = express();
-
-app.set('port', port);
-
 const server: Server = http.createServer(app);
 
 app.set('views', path.join(__dirname, 'views/pages'));
