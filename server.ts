@@ -1,17 +1,17 @@
 import express, { Express, Request, Response } from 'express';
-import http, { Server } from 'http';
+import http from 'http';
+import sio from 'socket.io';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 
 import indexRouter from './routes/index';
+import listener from './socket/listener';
 import { scripts, styles } from './services/middleware';
 
 const port: number = parseInt(process.env.PORT || '3000', 10);
 const app: Express = express();
-
-app.set('port', port);
-
-const server: Server = http.createServer(app);
+const server: http.Server = http.createServer(app);
+const io: sio.Server = sio(server);
 
 app.set('views', path.join(__dirname, 'views/pages'));
 app.set('view engine', 'pug');
@@ -31,6 +31,8 @@ app.use('/', indexRouter);
 app.use((_: Request, res: Response): void => {
     res.status(404).render('404');
 });
+
+io.on('connection', listener);
 
 server.on('error', (error: Error): void => {
     console.error(error);
