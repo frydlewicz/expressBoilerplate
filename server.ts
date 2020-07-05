@@ -19,6 +19,8 @@ app.use(express.urlencoded({
 }));
 app.use(cookieParser());
 
+app.disable('x-powered-by');
+
 app.get('*.js', scripts);
 app.get('*.css', styles);
 app.use(express.static(path.join(__dirname, 'public')));
