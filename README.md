@@ -45,7 +45,7 @@ npm run test
 
 install, set port and run:
 ```
-npm install --production
+npm install
 export PORT=3000
 npm run watch
 ```
